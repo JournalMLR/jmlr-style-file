@@ -340,6 +340,14 @@ are provided at \url{http://jmlr.org/papers/v#1/#6.html}.\hfill}}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\BlackBox}{\rule{1.5ex}{1.5ex}}  % end of proof
+\@ifpackageloaded{amsthm}
+  {\let\proof\relax
+    \let\endproof\relax}
+  {}
+%   % Alternative approach:
+% \@ifpackageloaded{amsthm}
+%   {}
+%   {\newenvironment{proof}{\par\noindent{\bf Proof\ }}{\hfill\BlackBox\\[2mm]}}
 \newenvironment{proof}{\par\noindent{\bf Proof\ }}{\hfill\BlackBox\\[2mm]}
 \newtheorem{example}{Example} 
 \newtheorem{theorem}{Theorem}
