@@ -31,6 +31,9 @@
 \DeclareOption{nohyperref}{\@usehyperfalse}
 \DeclareOption{hyperref}{\@usehypertrue}
 
+\newcommand{\editorname}{Editor}
+\DeclareOption{editors}{\renewcommand{\editorname}{Editors}}
+
 \DeclareOption*{\PackageWarning{jmlr}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
 
@@ -44,7 +47,7 @@
 \RequirePackage{graphicx}
 
 \if@usehyper
-\RequirePackage[colorlinks=false,allbordercolors={1 1 1}]{hyperref}
+\RequirePackage[hidelinks]{hyperref}
 \fi
 
 \if@abbrvbib
@@ -221,7 +224,7 @@
 
 \def\@startauthor{\noindent \normalsize\bf}
 \def\@endauthor{}
-\def\@starteditor{\noindent \small {\bf Editor:~}}
+\def\@starteditor{\noindent \small {\bf \editorname:~}}
 \def\@endeditor{\normalsize}
 \def\@maketitle{\vbox{\hsize\textwidth
  \linewidth\hsize \vskip \beforetitskip
@@ -340,6 +343,14 @@ are provided at \url{http://jmlr.org/papers/v#1/#6.html}.\hfill}}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\BlackBox}{\rule{1.5ex}{1.5ex}}  % end of proof
+\@ifpackageloaded{amsthm}
+  {\let\proof\relax
+    \let\endproof\relax}
+  {}
+%   % Alternative approach:
+% \@ifpackageloaded{amsthm}
+%   {}
+%   {\newenvironment{proof}{\par\noindent{\bf Proof\ }}{\hfill\BlackBox\\[2mm]}}
 \newenvironment{proof}{\par\noindent{\bf Proof\ }}{\hfill\BlackBox\\[2mm]}
 \newtheorem{example}{Example} 
 \newtheorem{theorem}{Theorem}
