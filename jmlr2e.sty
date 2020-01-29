@@ -31,6 +31,9 @@
 \DeclareOption{nohyperref}{\@usehyperfalse}
 \DeclareOption{hyperref}{\@usehypertrue}
 
+\newcommand{\editorname}{Editor}
+\DeclareOption{editors}{\renewcommand{\editorname}{Editors}}
+
 \DeclareOption*{\PackageWarning{jmlr}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
 
@@ -221,7 +224,7 @@
 
 \def\@startauthor{\noindent \normalsize\bf}
 \def\@endauthor{}
-\def\@starteditor{\noindent \small {\bf Editor:~}}
+\def\@starteditor{\noindent \small {\bf \editorname:~}}
 \def\@endeditor{\normalsize}
 \def\@maketitle{\vbox{\hsize\textwidth
  \linewidth\hsize \vskip \beforetitskip
